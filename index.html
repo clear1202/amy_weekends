@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广佛遛娃地图 🎈</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-b from-blue-50 to-green-50 min-h-screen">
+    <!-- Banner 区域 -->
+    <div class="banner relative h-80">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://img.freepik.com/free-vector/happy-family-park-illustration_74855-5264.jpg?w=1800&t=st=1709799372~exp=1709799972~hmac=7c98b4da5010f3d36a5c6d67f9d6e78c5da3cc6f7c0c7e2c7a7c7c7c7a7c7c7c')"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/10 to-black/40"></div>
+        <div class="container mx-auto px-4 h-full relative">
+            <div class="flex flex-col justify-center items-center h-full text-white">
+                <h1 class="text-5xl font-bold mb-4 text-shadow">广佛遛娃好去处</h1>
+                <p class="text-xl text-shadow-sm">发现精彩亲子时光 🌈</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 筛选器组 -->
+    <div class="container mx-auto px-4">
+        <div class="filter-container -mt-8 mb-8">
+            <div class="flex flex-wrap justify-center gap-6">
+                <!-- 地区筛选 -->
+                <div class="relative">
+                    <select id="location-filter" 
+                            class="filter-select appearance-none px-4 py-2 pr-8 rounded-lg bg-white/80 backdrop-blur-sm border border-gray-200 focus:outline-none focus:border-blue-500">
+                        <option value="all">全部地区</option>
+                        <option value="广州">广州</option>
+                        <option value="佛山">佛山</option>
+                        <option value="周边">周边</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 类型筛选 -->
+                <div class="relative">
+                    <select id="type-filter" 
+                            class="filter-select appearance-none px-4 py-2 pr-8 rounded-lg bg-white/80 backdrop-blur-sm border border-gray-200 focus:outline-none focus:border-blue-500">
+                        <option value="all">全部类型</option>
+                        <option value="主题乐园">主题乐园</option>
+                        <option value="博物馆">博物馆</option>
+                        <option value="公园">公园</option>
+                        <option value="文化景点">文化景点</option>
+                        <option value="科教场所">科教场所</option>
+                        <option value="运动场所">运动场所</option>
+                        <option value="商场综合体">商场综合体</option>
+                        <option value="特色餐厅">特色餐厅</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 打卡状态筛选 -->
+                <div class="relative">
+                    <select id="status-filter" 
+                            class="filter-select appearance-none px-4 py-2 pr-8 rounded-lg bg-white/80 backdrop-blur-sm border border-gray-200 focus:outline-none focus:border-blue-500">
+                        <option value="all">全部状态</option>
+                        <option value="checked">已打卡</option>
+                        <option value="unchecked">未打卡</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 随机出行按钮 -->
+                <button id="random-place" 
+                        class="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                    </svg>
+                    随机出行
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 地点卡片容器 -->
+    <div id="places-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 卡片将通过 JavaScript 动态生成 -->
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html> 
